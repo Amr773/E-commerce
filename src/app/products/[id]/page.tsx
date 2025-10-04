@@ -16,21 +16,22 @@ export default async function ProductDetals({
   if (!data) return <h1>No Products Here</h1>;
 
   const RelatedProducts = await getRelatedProducts(data.category._id);
-  console.log(RelatedProducts.data)
+  console.log(RelatedProducts.data);
 
   return (
     <>
       <Details data={data} />
-      
       <div className="container mx-auto w-[80%] my-12">
-        <h2 className="text-2xl font-bold text-slate-800">You Might Also Like</h2>
-              <div className="flex flex-wrap">
-                {RelatedProducts.data.map((currentProduct : ProductType) => (
-                  <SingleProduct key = {currentProduct.id} product={currentProduct} />
-                ))}
-              </div>
-              <h1></h1>
-            </div>
+        <h2 className="text-2xl font-bold text-slate-800">
+          You Might Also Like
+        </h2>
+        <div className="flex flex-wrap">
+          {RelatedProducts.data.map((currentProduct: ProductType) => (
+            <SingleProduct key={currentProduct.id} product={currentProduct} />
+          ))}
+        </div>
+        <h1></h1>
+      </div>
     </>
   );
 }
