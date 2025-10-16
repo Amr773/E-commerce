@@ -32,7 +32,9 @@ export default function WishlistContextProvider({
         setnumberOfWishlist(sum);
       
       }
-    } catch (err) {}
+    } catch (err) {
+      
+    }
   }
 
 
