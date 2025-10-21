@@ -23,8 +23,6 @@ export default function Checkout() {
 
   const { setuserId } = useUser();
 
-
-
   const form = useForm<checkoutSchemaType>({
     defaultValues: {
       details: "",
@@ -44,7 +42,7 @@ export default function Checkout() {
     } else if (res.status === "success" && paymentType === "cash") {
       setuserId(res.data.user);
       document.cookie = `userId=${res.data.user}; path=/; max-age=86400`;
-      // window.location.href = "/allorders";
+      window.location.href = "/allorders";
     }
   }
 
