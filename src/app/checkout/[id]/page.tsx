@@ -36,8 +36,8 @@ export default function Checkout() {
     const res = await onlinePayment(id, "", values, paymentType);
     console.log(res);
     if (res.status === "success" && paymentType === "card") {
-      setuserId(res.data.user);
-      document.cookie = `userId=${res.data.user}; path=/; max-age=86400`;
+      // setuserId(res.data.user);
+      // document.cookie = `userId=${res.data.user}; path=/; max-age=86400`;
       window.location.href = res.session.url;
     } else if (res.status === "success" && paymentType === "cash") {
       setuserId(res.data.user);
