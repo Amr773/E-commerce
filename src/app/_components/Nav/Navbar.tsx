@@ -30,19 +30,17 @@ export default function Nav() {
     });
   }
 
-
   return (
     <>
       <Navbar className="bg-emerald-600 text-white">
         <div className="flex items-center gap-8">
           <Link href="/" className="gap-2 cursor-pointer">
-            <span className="self-center whitespace-nowrap text-2xl font-semibold text-white">
+            <span className="whitespace-nowrap text-2xl font-semibold text-white">
               FreshCart
             </span>
           </Link>
-          <NavbarCollapse>
+          <NavbarCollapse className="">
             <Link href="/">Home</Link>
-
             {session && (
               <>
                 <Link href="/allorders">Orders</Link>
@@ -61,9 +59,9 @@ export default function Nav() {
             {session && (
               <>
                 <Link className="text-white relative" href="/cart">
-                  <i className="fa-solid fa-cart-shopping text-2xl"></i>
+                  <i className="fa-solid fa-cart-shopping text-xl"></i>
                   {numberOfCartItem > 0 && (
-                    <span className="absolute top-[-10px] end-[-10px] size-5 text-emerald-600 flex rounded-full justify-center items-center bg-white">
+                    <span className="absolute top-[-10px] end-[-10px] size-4 text-emerald-600 flex rounded-full justify-center items-center bg-white">
                       {numberOfCartItem}
                     </span>
                   )}
