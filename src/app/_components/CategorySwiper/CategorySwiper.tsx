@@ -14,21 +14,44 @@ export default function CategorySwiper({ data }: { data: CategoryType[] }) {
           Shop Popular Categories
         </h1>
         <Swiper
-          spaceBetween={0}
-          slidesPerView={7}
+          spaceBetween={20}
           modules={[Autoplay]}
-          autoplay={{ delay: 2000 }}
+          autoplay={{
+            delay: 2000,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 3,
+              allowTouchMove: true,
+            },
+            768: {
+              slidesPerView: 4,
+              allowTouchMove: true,
+            },
+            1024: {
+              slidesPerView: 5,
+              allowTouchMove: true,
+            },
+            1280: {
+              slidesPerView: 7,
+              allowTouchMove: true,
+            },
+          }}
         >
           {data.map((category: CategoryType) => (
             <SwiperSlide key={category._id}>
-              <Image
-                src={category.image}
-                className="h-[150px] w-auto object-cover"
-                alt="product"
-                width={150}
-                height={250}
-              />
-              <p className="text-center font-bold">{category.name}</p>
+              <div className="flex flex-col items-center justify-center">
+                <Image
+                  src={category.image}
+                  className="h-[150px] w-auto object-cover"
+                  alt="product"
+                  width={100}
+                  height={250}
+                />
+                <p className="text-center font-bold">{category.name}</p>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>
